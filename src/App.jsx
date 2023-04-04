@@ -1,11 +1,11 @@
 import './App.css'
-import Input from './components/Input'
+import SearchLocation from './containers/SearchLocation'
 
 function App() {
 
   return (
     <div className="App">
-    <Input />
+    <SearchLocation />
     </div>
   )
 }

@@ -9,8 +9,6 @@ const Input = ({ onChange, value, type, placeholder }) => {
             onChange={onChange}
             value={value}
             placeholder={placeholder}
-            size={size}
-            onBlur={onBlur}
         />
     );
 };
