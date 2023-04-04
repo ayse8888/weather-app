@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import axios from 'axios';
+import { API_KEY, BASE_URL } from '../../constants/privateKeys';
 
 const SearchLocation = () => {
     const [city, setCity] = useState('');
     const [location, setLocation] = useState('');
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=8995ccf941ccd1c28cefeb19ccf078d0&units=metric`;
+    const url = `${BASE_URL}/weather?q=${location}&appid=${API_KEY}&units=metric`;
 
     const searchLocation = (event) => {
         axios.get(url).then((response) => {
