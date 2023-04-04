@@ -1,10 +1,18 @@
-import React from 'react'
+import React from 'react';
 import styles from './index.module.css';
 
-const Input = () => {
-  return (
-    <input className={styles.input} />
-  )
-}
+const Input = ({ onChange, value, type, placeholder }) => {
+    return (
+        <input
+            className={styles.input}
+            type={type}
+            onChange={onChange}
+            value={value}
+            placeholder={placeholder}
+            size={size}
+            onBlur={onBlur}
+        />
+    );
+};
 
-export default Input
+export default Input;
