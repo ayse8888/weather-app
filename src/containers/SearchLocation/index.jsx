@@ -3,6 +3,8 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import axios from 'axios';
 import { API_KEY, BASE_URL } from '../../constants/privateKeys';
+import ErrorPage from '../ErrorPage';
+import Loading from '../Loading';
 
 const SearchLocation = () => {
     const [city, setCity] = useState('Rome');
@@ -13,12 +15,12 @@ const SearchLocation = () => {
     const url = `${BASE_URL}/weather?q=${location}&appid=${API_KEY}&units=metric`;
 
     const searchLocation = (event) => {
-        setLoading(true)
+        setLoading(true);
         axios
             .get(url)
             .then((response) => {
                 setCity(response.data);
-                setLoading(false)
+                setLoading(false);
                 setError(null);
                 console.log(response.data);
             })
@@ -29,23 +31,8 @@ const SearchLocation = () => {
         setLocation('');
     };
 
-    const getErrorView = () => {
-        return (
-            <div>
-                Oh no! Something went wrong. {error?.response?.data?.message}
-                {/* <button onClick={() => searchLocation()}>Try again</button> */}
-            </div>
-        );
-    };
-
-    const loadingSpinner = () => {
-        return(
-            <div>Loading</div>
-        )
-    }
-
-    if (error) return getErrorView();
-    if (loading) return loadingSpinner();
+    if (error) return <ErrorPage errorMessage={error?.response?.data?.message} />;
+    if (loading) return <Loading />;
 
     return (
         <div>
