@@ -27,7 +27,6 @@ const SearchLocation = () => {
             })
             .catch((err) => {
                 setError(err);
-                console.log(err)
             });
         setLocation('');
     };
