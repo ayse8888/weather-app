@@ -24,11 +24,9 @@ const SearchLocation = () => {
                 setCity(response.data);
                 setLoading(false);
                 setError(null);
-                console.log(response.data);
             })
             .catch((err) => {
                 setError(err);
-                console.log('err', err?.response?.data?.message);
             });
         setLocation('');
     };
