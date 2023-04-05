@@ -6,9 +6,10 @@ import { API_KEY, BASE_URL } from '../../constants/privateKeys';
 import ErrorPage from '../ErrorPage';
 import Loading from '../Loading';
 import WeatherData from '../WeatherData';
+import styles from './index.module.css';
 
 const SearchLocation = () => {
-    const [city, setCity] = useState('Rome');
+    const [city, setCity] = useState('');
     const [location, setLocation] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -36,15 +37,17 @@ const SearchLocation = () => {
     if (loading) return <Loading />;
 
     return (
-        <div>
-            <Input
-                type="text"
-                placeholder="Enter City.."
-                value={location}
-                onChange={(event) => setLocation(event.target.value)}
-            />
-            <Button onClick={searchLocation} />
-            {city && city.main && city.weather && (
+        <div className={styles.container}>
+            <div className={styles.searchContainer}>
+                <Input
+                    type="text"
+                    placeholder="Enter City.."
+                    value={location}
+                    onChange={(event) => setLocation(event.target.value)}
+                />
+                <Button onClick={searchLocation} />
+            </div>
+            {city && (
                 <WeatherData
                     name={city.name}
                     temperature={city.main.temp.toFixed()}
@@ -56,14 +59,6 @@ const SearchLocation = () => {
                     weatherIcon={`http://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}
                 />
             )}
-            {/* <WeatherData
-                        name={city?.name}
-                        temperature={city?.main?.temp.toFixed()}
-                        feelsLike={city?.main?.feels_like.toFixed()}
-                        humidity={city?.main?.humidity.toFixed()}
-                        windSpeed={city?.wind?.speed.toFixed()}
-                        description={city?.weather?.[0].description}
-                    /> */}
         </div>
     );
 };

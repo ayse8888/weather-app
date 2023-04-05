@@ -1,0 +1,32 @@
+.weatherIconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(230, 184, 162, .9);
+  border-radius: 20px;
+}
+
+.weatherInfoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.humidityContainer,
+.windSpeedContainer,
+.feelsLikeContainer {
+  background-color: rgba(230, 184, 162, .9);
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  width: 125px;
+  color: #fff;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 515px) {
+  .weatherInfoContainer {
+    flex-direction: column;
+  }
+}

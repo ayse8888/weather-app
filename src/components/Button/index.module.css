@@ -1,0 +1,12 @@
+.searchButton {
+    outline: none !important;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #e6b8a2;
+    color: white;
+    width: 100%;
+    max-width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
