@@ -1,7 +1,7 @@
 .errorContainer {
-    background-color: rgba(230, 184, 162, .9);
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    opacity: .9;
-    font-weight: 700;
+  background-color: rgba(230, 184, 162, 0.9);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  opacity: 0.9;
+  font-weight: 700;
 }
