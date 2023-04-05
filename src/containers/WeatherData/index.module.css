@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(230, 184, 162, 0.9);
+  background-color: rgba(224, 122, 95, 0.9);
   border-radius: 20px;
 }
 
@@ -15,7 +15,7 @@
 .humidityContainer,
 .windSpeedContainer,
 .feelsLikeContainer {
-  background-color: rgba(230, 184, 162, 0.9);
+  background-color: rgba(224, 122, 95, 0.9);
   padding: 10px;
   border-radius: 20px;
   margin-bottom: 1rem;
