@@ -5,6 +5,7 @@ import axios from 'axios';
 import { API_KEY, BASE_URL } from '../../constants/privateKeys';
 import ErrorPage from '../ErrorPage';
 import Loading from '../Loading';
+import WeatherData from '../WeatherData';
 
 const SearchLocation = () => {
     const [city, setCity] = useState('Rome');
@@ -43,19 +44,26 @@ const SearchLocation = () => {
                 onChange={(event) => setLocation(event.target.value)}
             />
             <Button onClick={searchLocation} />
-            <h1 className="city">{city?.name}</h1>
-            <p className="city">Temperature: {city?.main?.temp.toFixed()} °C</p>
-            <p className="city">Feels Like: {city?.main?.feels_like.toFixed()} °C</p>
-            <p className="city">Humidity: {city?.main?.humidity.toFixed()} %</p>
-            <p className="city">Wind Speed: {city?.wind?.speed.toFixed()} km/h</p>
-            {city.weather ? <p>Description: {city.weather[0].description}</p> : null}
-            {city.weather ? <p>{city.weather[0].main}</p> : null}
-            {city.weather && (
-                <img
-                    src={`http://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}
-                    alt=""
+            {city && city.main && city.weather && (
+                <WeatherData
+                    name={city.name}
+                    temperature={city.main.temp.toFixed()}
+                    feelsLike={city.main.feels_like.toFixed()}
+                    humidity={city.main.humidity.toFixed()}
+                    windSpeed={city.wind.speed.toFixed()}
+                    description={city.weather[0].description}
+                    main={city.weather[0].main}
+                    weatherIcon={`http://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`}
                 />
             )}
+            {/* <WeatherData
+                        name={city?.name}
+                        temperature={city?.main?.temp.toFixed()}
+                        feelsLike={city?.main?.feels_like.toFixed()}
+                        humidity={city?.main?.humidity.toFixed()}
+                        windSpeed={city?.wind?.speed.toFixed()}
+                        description={city?.weather?.[0].description}
+                    /> */}
         </div>
     );
 };
