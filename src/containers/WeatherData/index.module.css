@@ -4,6 +4,7 @@
   align-items: center;
   background-color: rgba(224, 122, 95, 0.9);
   border-radius: 20px;
+  padding: 0 1rem;
 }
 
 .weatherInfoContainer {
@@ -28,5 +29,11 @@
 @media screen and (max-width: 515px) {
   .weatherInfoContainer {
     flex-direction: column;
+  }
+
+  .humidityContainer,
+  .windSpeedContainer,
+  .feelsLikeContainer {
+    margin-right: 0;
   }
 }
